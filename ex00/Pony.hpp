@@ -13,8 +13,8 @@ public:
 		color = _color;
 	}
 
-	std::string get_name(void);
-	std::string get_color(void);
-
 	void about_me(void);
-}
+};
+
+void ponyOnTheHeap(std::string name, std::string color);
+void ponyOnTheStack(std::string name, std::string color);
