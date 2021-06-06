@@ -12,6 +12,11 @@ public:
 		type = _type;
 		name = _name;
 	}
+	~Zombie(){
+		std::cout << "Zombie : " << "<";
+		std::cout << name << " (" << type << ")" << ">";
+		std::cout << " Death!!!" << std::endl;
+	}
 
 	void announce(void);
-}
+};
