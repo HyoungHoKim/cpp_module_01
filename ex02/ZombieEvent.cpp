@@ -22,7 +22,7 @@ void	ZombieEvent::randomChump(void)
 		"white",
 		"rainbow"
 	};
-	int num;
+	long long num;
 	std::string random_name;
 	Zombie *new_zombie;
 
