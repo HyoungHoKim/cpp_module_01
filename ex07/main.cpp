@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 int main(int argc, char **argv)
 {
@@ -10,9 +11,13 @@ int main(int argc, char **argv)
 	{
 		std::string str;
 		std::ifstream fin(argv[1]);
+		char *filename = strdup(argv[1]);
 
 		if (fin.is_open())
 		{
+			strcat(filename, ".replace");
+			std::ofstream out(filename);
+
 			while (std::getline(fin, str))
 			{
 				size_t len = strlen(argv[2]);
@@ -24,8 +29,9 @@ int main(int argc, char **argv)
 						i += strlen(argv[3]);
 					}
 				}
-				std::cout << str << std::endl;
+				out << str + "\n";
 			}
+			free(filename);
 		}
 		else
 			std::cout << "Cannot open file!!!" << std::endl;
