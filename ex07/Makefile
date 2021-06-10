@@ -19,6 +19,6 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	./replace test.txt Good Great
+	./replace test Good Great
 
 .PHONY: all clean fclean re test

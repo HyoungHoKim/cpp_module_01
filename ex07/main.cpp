@@ -11,7 +11,8 @@ int main(int argc, char **argv)
 	{
 		std::string str;
 		std::ifstream fin(argv[1]);
-		char *filename = strdup(argv[1]);
+		char *filename = new char(strlen(argv[1]));
+		strcpy(filename, argv[1]);
 
 		if (fin.is_open())
 		{
@@ -31,12 +32,15 @@ int main(int argc, char **argv)
 				}
 				out << str + "\n";
 			}
-			free(filename);
+			delete filename;
+			out.close();
 		}
 		else
 			std::cout << "Cannot open file!!!" << std::endl;
+		fin.close();
 	}
 	else
 		std::cout << "Too many arguments!!!" << std::endl;
+	
 	return (0);
 }
